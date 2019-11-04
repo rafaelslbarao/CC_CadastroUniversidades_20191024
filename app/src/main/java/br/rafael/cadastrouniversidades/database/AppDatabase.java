@@ -10,6 +10,7 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import br.rafael.cadastrouniversidades.database.daos.AlunoDao;
+import br.rafael.cadastrouniversidades.database.daos.AlunoUniversidadeDao;
 import br.rafael.cadastrouniversidades.database.daos.UniversidadeDao;
 import br.rafael.cadastrouniversidades.database.entidades.Aluno;
 import br.rafael.cadastrouniversidades.database.entidades.Universidade;
@@ -23,6 +24,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UniversidadeDao getUniversidadeDao();
     public abstract AlunoDao getAlunoDao();
+    public abstract AlunoUniversidadeDao getAlunoUniversidadeDao();
 
     private static AppDatabase instancia;
 

@@ -16,7 +16,9 @@ public interface AlunoDao {
     @Insert
     public long[] insert(Aluno...alunos);
 
-    @Query("select ifnull(max(ra), 0) + 1 from TB_ALUNO where idUniversidade = :idUniversidade")
+    @Query(" select ifnull(max(ra), 0) + 1 " +
+            " from TB_ALUNO " +
+            " where idUniversidade = :idUniversidade")
     public Long selectProximoCodigoAluno(Long idUniversidade);
 
     @Query("select * from TB_ALUNO order by nome")

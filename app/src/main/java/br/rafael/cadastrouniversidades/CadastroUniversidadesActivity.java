@@ -14,7 +14,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.rafael.cadastrouniversidades.database.AppDatabase;
+import br.rafael.cadastrouniversidades.database.daos.AlunoUniversidadeDao;
 import br.rafael.cadastrouniversidades.database.daos.UniversidadeDao;
+import br.rafael.cadastrouniversidades.database.entidades.AlunoUniversidade;
 import br.rafael.cadastrouniversidades.database.entidades.Universidade;
 
 public class CadastroUniversidadesActivity extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class CadastroUniversidadesActivity extends AppCompatActivity {
     //
     //DAO para manipular a tabela de universidades
     private UniversidadeDao universidadeDao;
+    private AlunoUniversidadeDao alunoUniversidadeDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,9 @@ public class CadastroUniversidadesActivity extends AppCompatActivity {
         //
         //Da conexão busca o DAO para ser utilizado
         universidadeDao = instanciaBD.getUniversidadeDao();
+        alunoUniversidadeDao = instanciaBD.getAlunoUniversidadeDao();
+        List<AlunoUniversidade> alunoUniversidades
+                = alunoUniversidadeDao.selectAlunosESuasUniversidades();
     }
 
     private void inicializaComponentes() {
